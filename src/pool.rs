@@ -198,7 +198,7 @@ impl Pool {
         println!("{}", query_url);
         let mut response = String::new();
         let ref http_client = self.client.lock().unwrap();
-        let mut res = try!(http_client.get(query_url).send());
+        let mut res = try!(http_client.post(query_url).send());
 
         // assert_eq!(res.status, hyper::Ok);
         res.read_to_string(&mut response).unwrap();
